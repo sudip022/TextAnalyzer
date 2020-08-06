@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="alert alert-success" role="alert">
+    <p>Well come to the text analyzer ! Here you can test your text...</p>
+</div>
+
+
+<div class="container">
+
+    <form action="/analyze" method="POST"> {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter your Text Here ! </label>
+            <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="removepunc">
+            <label class="custom-control-label" for="customSwitch1">Remvove Punctuation</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch2" name="capatilized">
+            <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3" name="newlinerem">
+            <label class="custom-control-label" for="customSwitch3">New line remover</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch4" name="extraspacerem">
+            <label class="custom-control-label" for="customSwitch4">Extra space remover</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch5" name="charcount">
+            <label class="custom-control-label" for="customSwitch5">Character Count</label>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-dark">AnalyzeText</button>
+    </form>
+</div>
+{% endblock %}
